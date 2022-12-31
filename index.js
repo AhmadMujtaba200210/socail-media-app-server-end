@@ -35,5 +35,16 @@ const storage= multer.diskStorage({
         cb(null,file.originalname);
     }
 });
-
 const upload=multer({storage}); // anytime we are going to uploading any file we will use this multer variable to upload any image
+
+// Database configuration
+
+const port=process.env.PORT;
+mongoose
+    .connect(process.env.MONGO_URL,{
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+    })
+    .then(()=>{
+    app.listen(port,()=>console.log(`Server Port: ${port}`));
+}).catch((error)=>{console.error(error)});

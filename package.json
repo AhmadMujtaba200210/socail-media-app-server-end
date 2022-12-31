@@ -17,6 +17,7 @@
   "description": "A server end of my social media app. It is a mern stack project aspects of web engineering",
   "version": "1.0.0",
   "main": "index.js",
+  "type":"module",
   "devDependencies": {},
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"

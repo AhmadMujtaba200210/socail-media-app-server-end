@@ -1,5 +1,9 @@
 import mongoose from "mongoose";
-// here we are going to create an object of user model with properties and validations
+
+//When ever we going to create USer model first it will create user schema and later it passes it to user model.
+
+
+// here we are going to create an schema of user model with properties and validations
 const UserSchema=new mongoose.Schema({
     fistName:{
         type:String,
@@ -36,4 +40,11 @@ const UserSchema=new mongoose.Schema({
     occupation: String,
     viewedProfile: Number,
     impressions: Number,
-});
+
+},
+{timestamps:true}); // whenever a user is registered the time will also store in the database
+
+//then we pass the user schema to the mongoose model to create a user object model
+const User=mongoose.model("User",UserSchema);
+
+export default User;

@@ -8,6 +8,8 @@ import helmet from 'helmet';
 import morgan from 'morgan';
 import path from "path";
 import { fileURLToPath } from 'url';
+import {register} from '/controllers/auth'
+
 
 // configuration
 
@@ -37,6 +39,8 @@ const storage= multer.diskStorage({
 });
 const upload=multer({storage}); // anytime we are going to uploading any file we will use this multer variable to upload any image
 
+//Configuring authentication and authorization
+app.post("/auth/register", upload.single("picture"), register); // we are going to upload the picture on local host , we have a route/auth/register, we going to use register form, going to use register controller 
 // Database configuration
 
 const port=process.env.PORT;

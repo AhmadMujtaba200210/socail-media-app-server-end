@@ -1,9 +1,9 @@
 import express from 'express';
-import bodyParser from 'body-parser';
+import bodyParser from 'body-parser'; // it is used to parse the string body as JSON
 import mongoose from 'mongoose';
-import cors from 'cors';
-import dotenv from "dotenv";
-import multer from 'multer';
+import cors from 'cors';  // 
+import dotenv from "dotenv"; // to use environment variables from environment file
+import multer from 'multer'; //to upload images or files we use multer
 import helmet from 'helmet';
 import morgan from 'morgan';
 import path from "path";
@@ -39,7 +39,7 @@ const storage= multer.diskStorage({
 });
 const upload=multer({storage}); // anytime we are going to uploading any file we will use this multer variable to upload any image
 
-//Configuring authentication and authorization
+// routes with files
 app.post("/auth/register", upload.single("picture"), register); // we are going to upload the picture on local host , we have a route/auth/register, we going to use register form, going to use register controller 
 // Database configuration
 
